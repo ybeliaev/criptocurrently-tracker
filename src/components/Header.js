@@ -1,4 +1,6 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+
 import {
   AppBar,
   Container,
@@ -9,11 +11,13 @@ import {
 } from "@mui/material";
 
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <AppBar color={"transparent"} position={"static"}>
       <Container>
         <Toolbar>
           <Typography
+            onClick={() => navigate("/")}
             sx={{
               flex: 1,
               color: "gold",
@@ -26,8 +30,8 @@ const Header = () => {
           </Typography>
           <Select
             variant={"outlined"}
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
+            labelId="select-currency"
+            id="select-currency"
             value={"USD"}
             label="Age"
             onChange={(e) => console.log(e.target.value)}
