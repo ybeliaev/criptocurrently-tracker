@@ -7,12 +7,10 @@ import Header from "./components/Header";
 function App() {
   return (
     <BrowserRouter>
-      <div>
-        <Header />
-      </div>
+      <Header />
       <Routes>
-        <Route path="/" element={Homepage} />
-        <Route path="/coins/:id" element={CoinPage} />
+        <Route path="/" element={<Homepage />} />
+        <Route path="/coins" element={<CoinPage />} />
       </Routes>
     </BrowserRouter>
   );
