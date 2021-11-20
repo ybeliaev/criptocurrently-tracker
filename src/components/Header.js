@@ -11,6 +11,7 @@ import {
   Typography,
 } from "@mui/material";
 import { ThemeProvider } from "@emotion/react";
+import { CryptoState } from "../hooks/handleHooks";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -19,6 +20,10 @@ const Header = () => {
       mode: "dark",
     },
   });
+  // state currency
+  const { currency, setCurrency } = CryptoState();
+  console.log(setCurrency);
+
   return (
     <ThemeProvider theme={darkTheme}>
       <AppBar color={"transparent"} position={"static"}>
@@ -26,6 +31,7 @@ const Header = () => {
           <Toolbar>
             <Typography
               onClick={() => navigate("/")}
+              variant="h6"
               sx={{
                 flex: 1,
                 color: "gold",
@@ -43,7 +49,7 @@ const Header = () => {
               value={"USD"}
               displayEmpty
               inputProps={{ "aria-label": "Without label" }}
-              onChange={(e) => console.log(e.target.value)}
+              onChange={(e) => setCurrency(e.target.value)}
               sx={{ width: 100, height: 40, marginLeft: 15 }}
             >
               <MenuItem value="USD">USD</MenuItem>
