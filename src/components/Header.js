@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import {
@@ -12,17 +12,18 @@ import {
 } from "@mui/material";
 import { ThemeProvider } from "@emotion/react";
 import { CryptoState } from "../hooks/handleHooks";
+import { CurrentContext } from "../context/CryptoContext";
 
 const Header = () => {
+  const CryptoState = () => useContext(CurrentContext);
+  const { currency, setCurrency } = CryptoState();
+
   const navigate = useNavigate();
   const darkTheme = createTheme({
     palette: {
       mode: "dark",
     },
   });
-  // state currency
-  const [currency, setCurrency] = useState("USD");
-  console.log({ currency });
 
   return (
     <ThemeProvider theme={darkTheme}>
