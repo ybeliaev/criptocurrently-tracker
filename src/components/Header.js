@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import {
@@ -21,8 +21,8 @@ const Header = () => {
     },
   });
   // state currency
-  const { currency, setCurrency } = CryptoState();
-  console.log(setCurrency);
+  const [currency, setCurrency] = useState("USD");
+  console.log({ currency });
 
   return (
     <ThemeProvider theme={darkTheme}>
@@ -46,10 +46,10 @@ const Header = () => {
               variant={"outlined"}
               labelId="select-currency"
               id="select-currency"
-              value={"USD"}
+              value={currency}
               displayEmpty
               inputProps={{ "aria-label": "Without label" }}
-              onChange={(e) => setCurrency(e.target.value)}
+              onChange={(e) => console.log(e.target.value)}
               sx={{ width: 100, height: 40, marginLeft: 15 }}
             >
               <MenuItem value="USD">USD</MenuItem>

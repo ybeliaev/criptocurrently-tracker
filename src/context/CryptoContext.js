@@ -1,6 +1,8 @@
 import React, { createContext, useEffect, useState } from "react";
 
-export const Crypto = createContext();
+export const CurrentContext = createContext();
+
+/*export const Crypto = createContext();
 const CryptoContext = ({ children }) => {
   const { currency, setCurrency } = useState("UAH");
   const { symbol, setSymbol } = useState("₴");
@@ -19,4 +21,4 @@ const CryptoContext = ({ children }) => {
   );
 };
 
-export default CryptoContext;
+export default CryptoContext;*/

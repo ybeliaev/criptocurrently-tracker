@@ -1,4 +1,21 @@
-import { useContext } from "react";
-import { Crypto } from "../context/CryptoContext";
+import { useContext, useEffect, useState } from "react";
+import { CurrentContext } from "../context/CryptoContext";
 
-export const CryptoState = () => useContext(Crypto);
+// export const CryptoState = () => useContext(Crypto);
+export const ComponentCryptoContext = ({ children }) => {
+  const { currency, setCurrency } = useState("UAH");
+  const { symbol, setSymbol } = useState("₴");
+  useEffect(() => {
+    if (currency === "UAH") {
+      setSymbol("₴");
+    }
+    if (currency === "USD") {
+      setSymbol("$");
+    }
+  }, [currency, setSymbol]);
+  return (
+    <CurrentContext.Provider value={{ currency, setCurrency, symbol }}>
+      {children}
+    </CurrentContext.Provider>
+  );
+};
