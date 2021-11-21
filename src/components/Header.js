@@ -49,7 +49,7 @@ const Header = () => {
               value={currency}
               displayEmpty
               inputProps={{ "aria-label": "Without label" }}
-              onChange={(e) => console.log(e.target.value)}
+              onChange={(e) => setCurrency(e.target.value)}
               sx={{ width: 100, height: 40, marginLeft: 15 }}
             >
               <MenuItem value="USD">USD</MenuItem>
