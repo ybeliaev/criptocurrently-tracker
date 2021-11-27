@@ -30,8 +30,9 @@ const Banner = () => {
             variant="h2"
             sx={{
               fontWeight: "bold",
-              marginBottom: 15,
+              marginBottom: "15px",
               fontFamily: "Montserrat",
+              letterSpacing: 2,
             }}
           >
             Crypto Tracker
