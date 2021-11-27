@@ -33,7 +33,7 @@ const Banner = () => {
             sx={{
               fontWeight: "bold",
               marginBottom: "15px",
-              fontFamily: "Montserrat",
+              fontFamily: "Orbitron",
               letterSpacing: 2,
             }}
           >
