@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CurrentContext } from "../context/CryptoContext";
 
-// export const CryptoState = () => useContext(Crypto);
 export const ComponentCryptoContext = ({ children }) => {
   const [currency, setCurrency] = useState("UAH");
   const [symbol, setSymbol] = useState("₴");

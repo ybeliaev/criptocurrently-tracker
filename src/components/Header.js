@@ -11,11 +11,9 @@ import {
   Typography,
 } from "@mui/material";
 import { ThemeProvider } from "@emotion/react";
-import { CryptoState } from "../hooks/handleHooks";
-import { CurrentContext } from "../context/CryptoContext";
+import { CryptoState, CurrentContext } from "../context/CryptoContext";
 
 const Header = () => {
-  const CryptoState = () => useContext(CurrentContext);
   const { currency, setCurrency } = CryptoState();
   console.log(currency);
 
