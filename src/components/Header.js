@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import {
@@ -17,6 +17,7 @@ import { CurrentContext } from "../context/CryptoContext";
 const Header = () => {
   const CryptoState = () => useContext(CurrentContext);
   const { currency, setCurrency } = CryptoState();
+  console.log(currency);
 
   const navigate = useNavigate();
   const darkTheme = createTheme({
