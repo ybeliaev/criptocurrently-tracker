@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { styled } from "@mui/material";
 import axios from "axios";
 import { TrendingCoins } from "../config/api";
@@ -11,10 +11,17 @@ const DivCarouselStyled = styled("div")({
 });
 
 const Carousel = () => {
-  const { currency } = CryptoState();
+  const [trending, setTrending] = useState([]);
+  const { currency, symbol } = CryptoState();
   const fetchTrendingCoins = async () => {
     const { data } = await axios.get(TrendingCoins(currency));
+    setTrending(data);
   };
+  console.log(trending);
+  useEffect(() => {
+    fetchTrendingCoins();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currency]);
   return <DivCarouselStyled>carousel</DivCarouselStyled>;
 };
 
