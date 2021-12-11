@@ -35,7 +35,7 @@ const Header = () => {
               sx={{
                 flex: 1,
                 color: "gold",
-                fontFamily: "Montserrat",
+                fontFamily: "Orbitron",
                 fontWeight: "bold",
                 cursor: "pointer",
               }}
