@@ -103,8 +103,15 @@ const CoinsTable = () => {
                     const profit = row.price_change_percentage_24h > 0;
                     return (
                       <TableRow
+                        sx={{
+                          backgroundColor: "#16171a",
+                          cursor: "pointer",
+                          "&:hover": {
+                            backgroundColor: "#131111",
+                          },
+                          fontFamily: "Montserrat",
+                        }}
                         onClick={() => navigate(`/coins/${row.id}`)}
-                        // className={classes.row}
                         key={row.name}
                       >
                         <TableCell
@@ -138,7 +145,7 @@ const CoinsTable = () => {
                           </div>
                         </TableCell>
                         <TableCell align="right">
-                          {symbol}{" "}
+                          {symbol}
                           {numberWithCommas(row.current_price.toFixed(2))}
                         </TableCell>
                         <TableCell
@@ -152,7 +159,7 @@ const CoinsTable = () => {
                           {row.price_change_percentage_24h.toFixed(2)}%
                         </TableCell>
                         <TableCell align="right">
-                          {symbol}{" "}
+                          {symbol}
                           {numberWithCommas(
                             row.market_cap.toString().slice(0, -6)
                           )}
@@ -175,11 +182,15 @@ const CoinsTable = () => {
             display: "flex",
             justifyContent: "center",
           }}
-          // classes={{ ul: classes.pagination }}
-          // onChange={(_, value) => {
-          //   setPage(value);
-          //   window.scroll(0, 450);
-          // }}
+          sx={{
+            "& .MuiPaginationItem-root": {
+              color: "gold",
+            },
+          }}
+          onChange={(_, value) => {
+            setPage(value);
+            window.scroll(0, 450);
+          }}
         />
       </Container>
     </ThemeProvider>
