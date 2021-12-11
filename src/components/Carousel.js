@@ -3,7 +3,10 @@ import { styled } from "@mui/material";
 import axios from "axios";
 import { TrendingCoins } from "../config/api";
 import { CryptoState } from "../context/CryptoContext";
+
 import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
+
 import { Link } from "react-router-dom";
 import { numberWithCommas } from "../constants";
 
@@ -36,7 +39,7 @@ const Carousel = () => {
   const items = trending.map((coin) => {
     let profit = coin?.price_change_percentage_24h >= 0;
     return (
-      <Link sx={linkCarouselItemStyled} to={`/coins/${coin.id}`}>
+      <Link style={linkCarouselItemStyled} to={`/coins/${coin.id}`}>
         <img
           src={coin?.image}
           alt={coin.name}
