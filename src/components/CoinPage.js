@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import ReactHtmlParser from "react-html-parser";
 import { CryptoState } from "../context/CryptoContext";
 import axios from "axios";
 import { SingleCoin } from "../config/api";
 import styled from "@emotion/styled";
 import { ThemeProvider } from "@emotion/react";
-import { createTheme } from "@mui/material";
+import { createTheme, Typography } from "@mui/material";
 
 const CoinPage = () => {
   const { id } = useParams();
@@ -49,7 +50,27 @@ const CoinPage = () => {
   return (
     <ThemeProvider theme={darkTheme}>
       <DivContainer>
-        <DivSidebar>Coin page</DivSidebar>
+        <DivSidebar>
+          <img
+            src={coin?.image.large}
+            alt={coin?.name}
+            height="200"
+            style={{ marginBottom: 20 }}
+          />
+          <Typography
+            variant="h3"
+            sx={{
+              fontWeight: "bold",
+              marginBottom: 20,
+              fontFamily: "Montserrat",
+            }}
+          >
+            {coin?.name}
+          </Typography>
+          <Typography variant="subtitle1">
+            {ReactHtmlParser(coin?.description.en.split(". ")[0])}.
+          </Typography>
+        </DivSidebar>
       </DivContainer>
     </ThemeProvider>
   );
