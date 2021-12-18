@@ -8,6 +8,7 @@ import styled from "@emotion/styled";
 import { ThemeProvider } from "@emotion/react";
 import { createTheme, LinearProgress, Typography } from "@mui/material";
 import { numberWithCommas } from "../constants";
+import CoinInfo from "./CoinInfo";
 
 const CoinPage = () => {
   const { id } = useParams();
@@ -166,7 +167,7 @@ const CoinPage = () => {
             </span>
           </DivMarketData>
         </DivSidebar>
-        {/*<CoinInfo coin={coin} />*/}
+        <CoinInfo coin={coin} />
       </DivContainer>
     </ThemeProvider>
   );
